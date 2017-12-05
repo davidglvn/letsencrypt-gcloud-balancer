@@ -15,7 +15,7 @@ This container will attempt to renew certificates once a month. The container wi
 
 * `GCE_PROJECT` Your GCP/GCE project
 * `LETSENCRYPT_EMAIL` Email to use for Let's Encrypt registration
-* `TARGET_PROXY` Name of your GCP https proxy. Find it with `gcloud compute target-https-proxies list` after you've already created a HTTPS load balancer frontent
+* `TARGET_PROXY` Name of your GCP https proxy. Find it with `gcloud compute target-https-proxies list` or `gcloud compute target-ssl-proxies list` after you've already created a HTTPS load balancer frontent
 * `DOMAINS_LIST` A list of domains. Each domain must be prefixed with `-d`. If you want multiple domains, just seperate with a space as demonstrated above.
 
 ### Optional Variables
