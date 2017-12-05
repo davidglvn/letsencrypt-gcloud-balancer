@@ -21,5 +21,6 @@ This container will attempt to renew certificates once a month. The container wi
 ### Optional Variables
 
 * `USE_STAGING_SERVER` if set, We'll use the Let's Encrypt staging server. This wont issue usable certs, but will allow you to use / reuse the same domains list. *Warning* if you re-create this container more than 5 times in a month without a persistent volume, you will be rate limited and you wont be able to get more certificates until the next month.
+* `TARGET_TYPE` type of Google load balancer. By default it use `target-https-proxies` for HTTP/S load balancer. Set to `target-ssl-proxies` for TCP/SSL load balancer.
 
 Leave the docker container running, and it will attempt to update the cert once a month and remove the older cert once the new cert is installed.
