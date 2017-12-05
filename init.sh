@@ -20,7 +20,7 @@ cat /root/.lego/certificates/$CERT /root/.lego/certificates/$CERT_ISSUER > cert.
 
 # Create name for new certificate in gcloud
 CERT_ID=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 16 | head -n 1)-cert
-OLD_CERT_ID=$(./google-cloud-sdk/bin/gcloud -q compute ${TARGET_TYPE} list --filter "name=${TARGET_PROXY}" | sed -n 2p | awk '{print $2}')
+OLD_CERT_ID=$(./google-cloud-sdk/bin/gcloud -q compute ${TARGET_TYPE} list --filter "name=${TARGET_PROXY}" --format="csv[no-heading](SSL_CERTIFICATES)")
 
 # Generate new gcloud certificate and attach to https proxy
 ./google-cloud-sdk/bin/gcloud -q compute ssl-certificates create $CERT_ID --certificate=cert.crt --private-key=/root/.lego/certificates/$KEY
